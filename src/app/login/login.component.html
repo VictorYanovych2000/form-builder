@@ -1,0 +1,46 @@
+<div class="container">
+  <form [formGroup]="loginForm" >
+    <h3>Form authorization</h3>
+    <div class="form_group">
+      <label for="email"></label>
+      <input type="text"
+             name="email"
+             placeholder="email"
+             id="email"
+             class="form_control item"
+             formControlName="email"
+      >
+      <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].dirty" class="Alert">
+        You have entered incorrect email
+      </div>
+    </div>
+    <div class="form_group">
+      <label for="Password"></label>
+      <input type="password"
+             name="Password"
+             placeholder="Password"
+             id="Password"
+             class="form_control item"
+             formControlName="password"
+      >
+      <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+           class="Alert">
+        <div *ngIf="loginForm.controls['password'].errors?.['required']">
+          Name is required.
+        </div>
+        <div *ngIf="loginForm.controls['password'].errors?.['minlength']">
+          Name must be at least 3 characters long.
+        </div>
+        <div *ngIf="loginForm.controls['password'].errors?.['forbiddenName']">
+        </div>
+      </div>
+    </div>
+    <div class="form_group">
+      <button type="submit"
+              class="form_button"
+              [disabled]="!loginForm.valid"
+              (click)="FormBuilder()"
+      >Sing in</button>
+    </div>
+  </form>
+</div>

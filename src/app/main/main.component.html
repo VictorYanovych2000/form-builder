@@ -1,0 +1,36 @@
+<mat-drawer-container class="main_content" autosize>
+  <mat-drawer #drawer class="Navigation_sidenav_box" mode="side">
+    <div class="logo">
+      <div class="logo_image"></div>
+    </div>
+    <div class="link">
+      <div class="link_point">
+        <div class="Navigation_image_shopping"></div>
+        <a routerLink="/main/catalog">Catalog</a>
+      </div>
+      <div class="link_point">
+        <div class="Navigation_image_tag"></div>
+        <a routerLink="/main/customers">Customers</a>
+      </div>
+      <div class="link_point">
+        <div class="Navigation_image_user"></div>
+        <a routerLink="/main/orders">Orders</a>
+      </div>
+    </div>
+  </mat-drawer>
+  <div class="Button_sidenav_content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      <div class="mat-icon">
+        <mat-icon>view_headline</mat-icon>
+      </div>
+      <div class="button_link">
+        <h1>Orders</h1>
+      </div>
+    </button>
+    <div class="mat-table">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>
+
+
